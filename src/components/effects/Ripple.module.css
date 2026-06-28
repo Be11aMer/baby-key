@@ -4,6 +4,28 @@
   z-index: 30;
 }
 
+.splash {
+  position: absolute;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  transform: translate(-50%, -50%);
+  animation: splashFade 0.4s ease-out forwards;
+}
+
+@keyframes splashFade {
+  0% {
+    width: 20px;
+    height: 20px;
+    opacity: 0.5;
+  }
+  100% {
+    width: 60px;
+    height: 60px;
+    opacity: 0;
+  }
+}
+
 .ring {
   position: absolute;
   border-radius: 50%;
@@ -11,6 +33,7 @@
   width: 16px;
   height: 16px;
   transform: translate(-50%, -50%);
+  box-shadow: 0 0 20px var(--ripple-color), 0 0 40px var(--ripple-color);
   animation: expand 0.9s ease-out forwards;
 }
 

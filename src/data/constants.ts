@@ -1,5 +1,11 @@
 export const NOTE_FREQS: readonly number[] = [
-  261.63, 293.66, 329.63, 392.0, 440.0, 523.25, 587.33, 659.25, 783.99, 880.0,
+  261.63, 293.66, 329.63, 392.0, 440.0, 523.25, 587.33, 659.25, 783.99, 880.0, 1046.5,
+];
+
+export const WAVEFORM_PAIRS: readonly [OscillatorType, OscillatorType][] = [
+  ['sine', 'triangle'],
+  ['sine', 'square'],
+  ['triangle', 'square'],
 ];
 
 export const COLORS_DARK: readonly string[] = [

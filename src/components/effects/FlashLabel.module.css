@@ -12,11 +12,13 @@
 }
 
 .dark {
-  color: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.15);
+  text-shadow: 0 0 40px rgba(180, 120, 255, 0.3), 0 0 80px rgba(180, 120, 255, 0.15);
 }
 
 .light {
-  color: rgba(80, 30, 120, 0.06);
+  color: rgba(80, 30, 120, 0.12);
+  text-shadow: 0 0 40px rgba(255, 150, 200, 0.25), 0 0 80px rgba(255, 150, 200, 0.12);
 }
 
 @keyframes flash {

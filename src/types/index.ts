@@ -28,6 +28,7 @@ export interface StarData {
   size: number;
   delay: number;
   duration: number;
+  color: string;
 }
 
 export interface BubbleData {
