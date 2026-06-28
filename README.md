@@ -20,7 +20,7 @@ A safe, colorful interactive screen designed for babies and toddlers. Parents in
 - **Vite** for fast development and optimized production builds
 - **CSS Modules** for scoped, zero-runtime styling
 - **Web Audio API** for real-time sound synthesis (no audio files)
-- **Cloudflare Pages** for global edge deployment
+- **Cloudflare Workers** for global edge deployment
 
 ## Getting Started
 
@@ -93,23 +93,21 @@ The app follows a hooks-driven architecture with clear separation of concerns:
 
 ## Deployment
 
-### Cloudflare Pages
+### Cloudflare Workers
 
-Connect the GitHub repository to Cloudflare Pages with these settings:
-
-| Setting | Value |
-|---------|-------|
-| Build command | `npm run build` |
-| Build output directory | `dist` |
-| Framework preset | Vite |
+The app is deployed via Cloudflare Workers with static asset hosting. SPA routing is handled natively by `wrangler.jsonc` (`not_found_handling: "single-page-application"`), which serves `index.html` for any route that doesn't match a static file.
 
 Security headers (CSP, X-Frame-Options, etc.) are configured via `public/_headers`.
 
-### Manual Deploy
+```bash
+npm run deploy
+```
+
+Or manually:
 
 ```bash
 npm run build
-npx wrangler pages deploy dist
+npx wrangler deploy
 ```
 
 ## Security
