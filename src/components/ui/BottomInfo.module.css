@@ -1,0 +1,51 @@
+.container {
+  text-align: center;
+  min-height: 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.lastKey {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(14px, 2.5vw, 20px);
+}
+
+.lastKey-dark {
+  color: rgba(180, 220, 255, 0.6);
+}
+
+.lastKey-light {
+  color: rgba(80, 30, 120, 0.5);
+}
+
+.badge {
+  display: inline-block;
+  border-radius: 7px;
+  padding: 2px 12px;
+}
+
+.badge-dark {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.badge-light {
+  background: rgba(180, 100, 255, 0.15);
+  color: #4a197b;
+}
+
+.tip {
+  font-size: 11px;
+  opacity: 0.35;
+  font-family: sans-serif;
+}
+
+.tip-dark {
+  color: white;
+}
+
+.tip-light {
+  color: black;
+}
