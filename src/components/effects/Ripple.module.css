@@ -1,0 +1,28 @@
+.container {
+  position: absolute;
+  pointer-events: none;
+  z-index: 30;
+}
+
+.ring {
+  position: absolute;
+  border-radius: 50%;
+  border: clamp(2px, 0.5vw, 3px) solid;
+  width: 16px;
+  height: 16px;
+  transform: translate(-50%, -50%);
+  animation: expand 0.9s ease-out forwards;
+}
+
+@keyframes expand {
+  0% {
+    width: 16px;
+    height: 16px;
+    opacity: 0.95;
+  }
+  100% {
+    width: clamp(150px, 50vw, 300px);
+    height: clamp(150px, 50vw, 300px);
+    opacity: 0;
+  }
+}

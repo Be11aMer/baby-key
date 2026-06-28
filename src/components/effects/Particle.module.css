@@ -1,0 +1,31 @@
+.particle {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  z-index: 100;
+  line-height: 1;
+  transform-origin: center center;
+  will-change: transform, opacity;
+  animation: fly 1.3s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+@keyframes fly {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.1) rotate(0deg);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.4) rotate(15deg);
+  }
+  60% {
+    opacity: 0.9;
+    transform: translate(calc(-50% + var(--dx) * 0.7), calc(-50% + var(--dy) * 0.7)) scale(1)
+      rotate(-10deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy) + 50px)) scale(0.5)
+      rotate(45deg);
+  }
+}
