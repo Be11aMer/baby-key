@@ -37,8 +37,8 @@
 }
 
 .tip {
-  font-size: 11px;
-  opacity: 0.35;
+  font-size: clamp(12px, 2vw, 14px);
+  opacity: 0.45;
   font-family: sans-serif;
 }
 

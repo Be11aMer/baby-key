@@ -89,8 +89,9 @@ export function useInteraction(theme: ThemeMode) {
             ? e.key.toUpperCase()
             : e.key.replace(/^(Arrow|Key|Digit)/, '');
 
-      const x = 80 + Math.random() * (window.innerWidth - 160);
-      const y = 80 + Math.random() * (window.innerHeight - 160);
+      const margin = Math.min(80, window.innerWidth * 0.1);
+      const x = margin + Math.random() * (window.innerWidth - margin * 2);
+      const y = margin + Math.random() * (window.innerHeight - margin * 2);
       triggerInteraction(label, x, y, e.key === 'Enter' || e.key === ' ');
     };
 
@@ -101,12 +102,16 @@ export function useInteraction(theme: ThemeMode) {
       });
     };
 
+    const preventGesture = (e: TouchEvent) => e.preventDefault();
+
     window.addEventListener('keydown', handleKey, { passive: false });
     window.addEventListener('touchstart', handleTouch, { passive: false });
+    window.addEventListener('touchmove', preventGesture, { passive: false });
 
     return () => {
       window.removeEventListener('keydown', handleKey);
       window.removeEventListener('touchstart', handleTouch);
+      window.removeEventListener('touchmove', preventGesture);
     };
   }, [triggerInteraction]);
 
