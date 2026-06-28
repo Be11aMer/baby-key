@@ -14,6 +14,34 @@ A safe, colorful interactive screen designed for babies and toddlers. Parents in
 - **Zero Tracking** — no analytics, no cookies, no external requests, no data collection
 - **Offline Ready** — works without internet after first load
 
+## Screenshots
+
+### Desktop
+
+<table>
+  <tr>
+    <td><img src="docs/screenshots/desktop-dark.png" alt="Dark mode with twinkling stars" width="400" /></td>
+    <td><img src="docs/screenshots/desktop-active.png" alt="Emoji particles after key presses" width="400" /></td>
+  </tr>
+  <tr>
+    <td align="center"><em>Dark mode — twinkling stars</em></td>
+    <td align="center"><em>Emoji explosions on key smash</em></td>
+  </tr>
+</table>
+
+### Mobile & Tablet
+
+<table>
+  <tr>
+    <td><img src="docs/screenshots/mobile.png" alt="iPhone view with touch interactions" width="200" /></td>
+    <td><img src="docs/screenshots/tablet.png" alt="iPad view with touch interactions" width="350" /></td>
+  </tr>
+  <tr>
+    <td align="center"><em>iPhone SE (375x667)</em></td>
+    <td align="center"><em>iPad (768x1024)</em></td>
+  </tr>
+</table>
+
 ## Tech Stack
 
 - **React 19** with TypeScript for type-safe component architecture
