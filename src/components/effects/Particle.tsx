@@ -15,7 +15,7 @@ export const Particle = memo(function Particle({ id, x, y, animation, dx, dy, on
 
   return (
     <div
-      className={styles.particle}
+      className={`${styles.particle}${animation.bounce ? ` ${styles.bouncy}` : ''}`}
       style={
         {
           left: x,

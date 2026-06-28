@@ -19,7 +19,8 @@ export function useInteraction(theme: ThemeMode) {
   const [pressCount, setPressCount] = useState(0);
   const [counterKey, setCounterKey] = useState(0);
 
-  const { playNote } = useAudio();
+  const { playNote, playChord, playArpeggio } = useAudio();
+  const pressCountRef = useRef(0);
   const idRef = useRef(0);
   const flashTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -57,7 +58,11 @@ export function useInteraction(theme: ThemeMode) {
 
   const triggerInteraction = useCallback(
     (keyStr: string | null, x: number, y: number, isSpecial: boolean) => {
-      playNote();
+      if (isSpecial) {
+        playChord();
+      } else {
+        playNote();
+      }
 
       if (keyStr) {
         setLastKey(keyStr);
@@ -66,11 +71,16 @@ export function useInteraction(theme: ThemeMode) {
         flashTimerRef.current = setTimeout(() => setFlashLabel(null), 700);
       }
 
+      pressCountRef.current += 1;
+      if (pressCountRef.current % 10 === 0) {
+        playArpeggio();
+      }
+
       setPressCount((c) => c + 1);
       setCounterKey((k) => k + 1);
       spawn(x, y, isSpecial ? 12 : 3 + Math.floor(Math.random() * 3));
     },
-    [playNote, spawn],
+    [playNote, playChord, playArpeggio, spawn],
   );
 
   const removeParticle = useCallback((id: number) => {

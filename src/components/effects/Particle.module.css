@@ -23,9 +23,29 @@
     transform: translate(calc(-50% + var(--dx) * 0.7), calc(-50% + var(--dy) * 0.7)) scale(1)
       rotate(-10deg);
   }
+  80% {
+    opacity: 0.5;
+    transform: translate(calc(-50% + var(--dx) * 0.9), calc(-50% + var(--dy) * 0.85 + 60px))
+      scale(0.7) rotate(30deg);
+  }
   100% {
     opacity: 0;
-    transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy) + 50px)) scale(0.5)
+    transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy) + 120px)) scale(0.4)
       rotate(45deg);
+  }
+}
+
+.bouncy {
+  animation: fly 1.3s cubic-bezier(0.22, 0.61, 0.36, 1) forwards,
+    bounce 0.35s ease-in-out 3;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -12px;
   }
 }

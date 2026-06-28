@@ -3,6 +3,8 @@ import type { StarData } from '../../types';
 import { STAR_COUNT } from '../../data/constants';
 import styles from './Stars.module.css';
 
+const STAR_COLORS = ['#ffffff', '#ffe4a0', '#a0d4ff'];
+
 interface StarsProps {
   visible: boolean;
 }
@@ -16,6 +18,7 @@ export const Stars = memo(function Stars({ visible }: StarsProps) {
       size: Math.random() * 2.5 + 0.8,
       delay: Math.random() * 4,
       duration: Math.random() * 3 + 2,
+      color: STAR_COLORS[Math.floor(Math.random() * STAR_COLORS.length)],
     })),
   );
 
@@ -27,13 +30,28 @@ export const Stars = memo(function Stars({ visible }: StarsProps) {
         <div
           key={s.id}
           className={styles.star}
+          style={
+            {
+              left: `${s.x}%`,
+              top: `${s.y}%`,
+              width: s.size,
+              height: s.size,
+              animationDuration: `${s.duration}s`,
+              animationDelay: `${s.delay}s`,
+              '--star-color': s.color,
+            } as React.CSSProperties
+          }
+        />
+      ))}
+      {[0, 1, 2].map((i) => (
+        <div
+          key={`shoot-${i}`}
+          className={styles.shootingStar}
           style={{
-            left: `${s.x}%`,
-            top: `${s.y}%`,
-            width: s.size,
-            height: s.size,
-            animationDuration: `${s.duration}s`,
-            animationDelay: `${s.delay}s`,
+            top: `${10 + i * 25}%`,
+            left: `${15 + i * 30}%`,
+            animationDelay: `${i * 4 + 2}s`,
+            animationDuration: `${8 + i * 3}s`,
           }}
         />
       ))}
