@@ -105,14 +105,21 @@ export function useInteraction(theme: ThemeMode) {
       triggerInteraction(label, x, y, e.key === 'Enter' || e.key === ' ');
     };
 
+    const isInteractiveTarget = (target: EventTarget | null) =>
+      target instanceof Element && target.closest('button, a, input, select, textarea') !== null;
+
     const handleTouch = (e: TouchEvent) => {
+      if (isInteractiveTarget(e.target)) return;
       e.preventDefault();
       Array.from(e.changedTouches).forEach((t) => {
         triggerInteraction(null, t.clientX, t.clientY, false);
       });
     };
 
-    const preventGesture = (e: TouchEvent) => e.preventDefault();
+    const preventGesture = (e: TouchEvent) => {
+      if (isInteractiveTarget(e.target)) return;
+      e.preventDefault();
+    };
 
     window.addEventListener('keydown', handleKey, { passive: false });
     window.addEventListener('touchstart', handleTouch, { passive: false });
