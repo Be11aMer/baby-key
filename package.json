@@ -27,7 +27,7 @@
     "prettier": "^3.5.3",
     "typescript": "~6.0.2",
     "vite": "^8.1.0",
-    "wrangler": "^4.22.0"
+    "wrangler": "^4.114.0"
   },
   "license": "MIT"
 }
